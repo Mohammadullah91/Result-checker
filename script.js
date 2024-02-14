@@ -19,6 +19,7 @@ function checkResult() {
         return response.text();
     })
     .then(data => {
+        console.log('API Response:', data);
         document.getElementById("resultContainer").innerHTML = data;
     })
     .catch(error => {
