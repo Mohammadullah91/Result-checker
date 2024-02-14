@@ -12,7 +12,12 @@ function checkResult() {
         },
         body: requestData
     })
-    .then(response => response.text())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.text();
+    })
     .then(data => {
         document.getElementById("resultContainer").innerHTML = data;
     })
